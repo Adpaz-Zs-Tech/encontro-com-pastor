@@ -30,7 +30,6 @@ export default function Home() {
           <InputBase />
           <InputBase />
           <InputBase />
-          <InputBase />
         </form>
       </div>
     </div>
