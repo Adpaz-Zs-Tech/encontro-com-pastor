@@ -1,31 +1,23 @@
-'use client';
+"use client";
+import PhoneIcon from "@mui/icons-material/Phone";
+import DirectionsIcon from "@mui/icons-material/Directions";
+import { useForm } from "react-hook-form";
 
-import { InputBase, Title1, Text, Title2, Header } from '@/app/components';
-import PhoneIcon from '@mui/icons-material/Phone';
-import DirectionsIcon from '@mui/icons-material/Directions';
-import { useForm } from 'react-hook-form';
+import { InputBase, Title1, Text, Title2, Header } from "@/components";
+import { RegisterForm } from "@/types/forms";
+import { BaseButtton } from "@/components/BaseButton";
 
 export default function Home() {
-  type registerForm = {
-    name: string;
-    email: string;
-  };
-
   const {
-    register,
     formState: { errors },
     control,
     handleSubmit,
-  } = useForm<registerForm>({
-    mode: 'onBlur',
-    defaultValues: {
-      email: '',
-      name: '',
-    },
+  } = useForm<RegisterForm>({
+    mode: "onBlur",
   });
 
-  const teste = (data: any) => {
-    console.log(data);
+  const teste = (data: RegisterForm) => {
+    console.log(data.email);
   };
 
   return (
@@ -49,18 +41,18 @@ export default function Home() {
             control={control}
             label="Seu nome"
             name="name"
-            rules={{ required: 'Nome obrigatorio' }}
+            rules={{ required: "Nome obrigatorio" }}
             error={errors.name?.message}
           />
           <InputBase
             control={control}
             label="Seu email"
             name="email"
-            rules={{ required: 'Email obrigatorio' }}
+            rules={{ required: "Email obrigatorio" }}
             error={errors.email?.message}
           />
 
-          <button type="submit">Enviar</button>
+          <BaseButtton title="Enviar" />
         </form>
         <div className="mt-6">
           <Title2 title="Contate-nos" />
