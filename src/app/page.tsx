@@ -11,21 +11,14 @@ export default function Home() {
   };
 
   const {
-    register,
     formState: { errors },
     control,
     handleSubmit,
   } = useForm<registerForm>({
     mode: 'onBlur',
-    defaultValues: {
-      email: '',
-      name: '',
-    },
   });
 
-  const teste = (data: any) => {
-    console.log(data);
-  };
+  const formSubmit = (data: any) => {};
 
   return (
     <div className="w-full ">
@@ -40,7 +33,7 @@ export default function Home() {
           />
         </div>
         <form
-          onSubmit={handleSubmit(teste)}
+          onSubmit={handleSubmit(formSubmit)}
           className="w-full border-2 shadow-lg border-gray-300 bg-white rounded-xl p-5 flex flex-col gap-3"
         >
           <Title2 title="Deixe a gente te conhecer melhor!" />
