@@ -18,7 +18,9 @@ export default function Home() {
     mode: 'onBlur',
   });
 
-  const formSubmit = (data: any) => {};
+  const formSubmit = (data: any) => {
+    console.log(data.name, data.email);
+  };
 
   return (
     <div className="w-full ">
