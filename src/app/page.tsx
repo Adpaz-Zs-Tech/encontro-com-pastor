@@ -1,6 +1,6 @@
-import { InputBase, Title1, Text, Title2, Header } from "@/app/components";
-import PhoneIcon from "@mui/icons-material/Phone";
-import DirectionsIcon from "@mui/icons-material/Directions";
+import { InputBase, Title1, Text, Title2, Header } from '@/app/components';
+import PhoneIcon from '@mui/icons-material/Phone';
+import DirectionsIcon from '@mui/icons-material/Directions';
 export default function Home() {
   return (
     <div className="w-full ">
@@ -40,3 +40,4 @@ export default function Home() {
     </div>
   );
 }
+//ds
