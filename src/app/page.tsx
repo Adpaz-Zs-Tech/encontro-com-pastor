@@ -98,6 +98,12 @@ export default function Home() {
             name="estadoCivil"
             rules={{ required: 'Selecione uma opção valida.' }}
             error={errors.estadoCivil?.message}
+            options={[
+              { label: 'Solteiro(a)', value: 'solteiro' },
+              { label: 'Casado(a)', value: 'casado' },
+              { label: 'Divorciado(a)', value: 'divorciado' },
+              { label: 'Viuvo(a)', value: 'viuvo' },
+            ]}
           />
 
           <BaseButtton title="Enviar" />

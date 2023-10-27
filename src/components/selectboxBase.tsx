@@ -1,20 +1,17 @@
-import { InputProps } from '@/types/forms';
+import { SelectboxProps } from '@/types/forms';
 import { Controller, UseControllerProps, FieldValues } from 'react-hook-form';
-
-const estadoCivil = [
-  { label: 'Selecione...', value: '' },
-  { label: 'Solteiro(a)', value: 'solteiro' },
-  { label: 'Casado(a)', value: 'casado' },
-  { label: 'Separado(a)', value: 'separado' },
-  { label: 'Divorciado(a)', value: 'divorciado' },
-];
 
 export function SelectboxBase<FormType extends FieldValues>({
   control,
   name,
   rules,
-  ...inputProps
-}: UseControllerProps<FormType> & InputProps) {
+  ...selectboxProps
+}: UseControllerProps<FormType> & SelectboxProps) {
+  const estadoCivil = [
+    { label: 'Selecione...', value: '' },
+    ...selectboxProps.options,
+  ];
+
   return (
     <Controller
       name={name}
@@ -23,10 +20,9 @@ export function SelectboxBase<FormType extends FieldValues>({
       render={({ field: { onChange, value } }) => (
         <div className="w-full">
           <label className="text-gray-500 font-medium mb-2">
-            {inputProps.label}
+            {selectboxProps.label}
           </label>
           <select
-            {...inputProps}
             onChange={onChange}
             value={value}
             className="h-10 border rounded-md w-full border-gray-300 p-2"
@@ -38,8 +34,10 @@ export function SelectboxBase<FormType extends FieldValues>({
             ))}
           </select>
 
-          {inputProps.error && (
-            <p className="text-xs text-red-system mt-1">{inputProps.error}</p>
+          {selectboxProps.error && (
+            <p className="text-xs text-red-system mt-1">
+              {selectboxProps.error}
+            </p>
           )}
         </div>
       )}
