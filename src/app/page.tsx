@@ -1,11 +1,18 @@
-"use client";
-import PhoneIcon from "@mui/icons-material/Phone";
-import DirectionsIcon from "@mui/icons-material/Directions";
-import { useForm } from "react-hook-form";
+'use client';
+import PhoneIcon from '@mui/icons-material/Phone';
+import DirectionsIcon from '@mui/icons-material/Directions';
+import { useForm } from 'react-hook-form';
 
-import { InputBase, Title1, Text, Title2, Header } from "@/components";
-import { RegisterForm } from "@/types/forms";
-import { BaseButtton } from "@/components/BaseButton";
+import {
+  InputBase,
+  Title1,
+  Text,
+  Title2,
+  Header,
+  SelectboxBase,
+} from '@/components';
+import { RegisterForm } from '@/types/forms';
+import { BaseButtton } from '@/components/BaseButton';
 
 export default function Home() {
   const {
@@ -13,11 +20,11 @@ export default function Home() {
     control,
     handleSubmit,
   } = useForm<RegisterForm>({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
 
   const teste = (data: RegisterForm) => {
-    console.log(data.email);
+    console.log(data);
   };
 
   return (
@@ -39,17 +46,58 @@ export default function Home() {
           <Title2 title="Deixe a gente te conhecer melhor!" />
           <InputBase
             control={control}
-            label="Seu nome"
+            label="Nome Completo"
             name="name"
-            rules={{ required: "Nome obrigatorio" }}
+            rules={{ required: 'Nome obrigatorio.' }}
             error={errors.name?.message}
           />
           <InputBase
             control={control}
-            label="Seu email"
+            label="Telefone"
+            name="telefone"
+            rules={{
+              required: 'Telefone obrigatorio.',
+              pattern: {
+                value: /^[0-9]{11}$/,
+                message:
+                  'Insira um número de telefone válido. Ex.: 84912345678',
+              },
+            }}
+            error={errors.telefone?.message}
+            placeholder="Ex: 84912345678"
+            type="number"
+          />
+
+          <InputBase
+            control={control}
+            label="Email"
             name="email"
-            rules={{ required: "Email obrigatorio" }}
+            rules={{ required: 'Email obrigatorio.' }}
             error={errors.email?.message}
+            placeholder="exemplo@email.com"
+          />
+
+          <InputBase
+            control={control}
+            label="Data de Nascimento"
+            name="nascimento"
+            rules={{
+              required: 'Data de nascimento obrigatoria.',
+              pattern: {
+                value: /^\d{2}-\d{2}-\d{4}$/,
+                message: 'Insira uma data valida. Ex.: dd-mm-aaaa',
+              },
+            }}
+            error={errors.nascimento?.message}
+            placeholder="Ex: 23-10-2000"
+          />
+
+          <SelectboxBase
+            control={control}
+            label="Estado Civil"
+            name="estadoCivil"
+            rules={{ required: 'Selecione uma opção valida.' }}
+            error={errors.estadoCivil?.message}
           />
 
           <BaseButtton title="Enviar" />

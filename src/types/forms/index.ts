@@ -1,3 +1,4 @@
-import { RegisterForm } from "./RegisterFormProps";
+import { RegisterForm } from './RegisterFormProps';
+import { InputProps } from './InputProps';
 
-export type { RegisterForm };
+export type { RegisterForm, InputProps };
