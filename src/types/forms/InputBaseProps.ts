@@ -1,4 +1,4 @@
-export interface InputProps {
+export interface InputBaseProps {
   placeholder?: string;
   type?: string;
   label: string;

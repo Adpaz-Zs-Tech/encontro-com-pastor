@@ -1,4 +1,4 @@
-import { SelectboxProps } from '@/types/forms';
+import { SelectboxBaseProps } from '@/types/forms';
 import { Controller, UseControllerProps, FieldValues } from 'react-hook-form';
 
 export function SelectboxBase<FormType extends FieldValues>({
@@ -6,7 +6,7 @@ export function SelectboxBase<FormType extends FieldValues>({
   name,
   rules,
   ...selectboxProps
-}: UseControllerProps<FormType> & SelectboxProps) {
+}: UseControllerProps<FormType> & SelectboxBaseProps) {
   const estadoCivil = [
     { label: 'Selecione...', value: '' },
     ...selectboxProps.options,
