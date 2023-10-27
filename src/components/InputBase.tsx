@@ -1,10 +1,11 @@
-import { Controller, UseControllerProps, FieldValues } from "react-hook-form";
+import { Controller, UseControllerProps, FieldValues } from 'react-hook-form';
 
-type inputProps = {
+type selectboxProps = {
   placeholder?: string;
   type?: string;
   label: string;
   error?: string;
+  value?: any;
 };
 
 export function InputBase<FormType extends FieldValues>({
@@ -12,21 +13,20 @@ export function InputBase<FormType extends FieldValues>({
   name,
   rules,
   ...inputProps
-}: UseControllerProps<FormType> & inputProps) {
+}: UseControllerProps<FormType> & selectboxProps) {
   return (
     <Controller
       name={name}
       control={control}
       rules={rules}
-      render={({ field: { onChange, value } }) => (
+      render={({ field }) => (
         <div className="w-full">
           <label className="text-gray-500 font-medium mb-2">
             {inputProps.label}
           </label>
           <input
+            {...field}
             {...inputProps}
-            onChange={onChange}
-            value={value}
             className="h-8 border rounded-md w-full border-gray-300 p-2"
           />
 
