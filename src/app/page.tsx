@@ -1,7 +1,7 @@
-'use client';
-import PhoneIcon from '@mui/icons-material/Phone';
-import DirectionsIcon from '@mui/icons-material/Directions';
-import { useForm } from 'react-hook-form';
+"use client";
+import PhoneIcon from "@mui/icons-material/Phone";
+import DirectionsIcon from "@mui/icons-material/Directions";
+import { useForm } from "react-hook-form";
 
 import {
   InputBase,
@@ -10,9 +10,9 @@ import {
   Title2,
   Header,
   SelectboxBase,
-} from '@/components';
-import { RegisterForm } from '@/types/forms';
-import { BaseButtton } from '@/components/BaseButton';
+} from "@/components";
+import { RegisterForm } from "@/types/forms";
+import { BaseButtton } from "@/components/BaseButton";
 
 export default function Home() {
   const {
@@ -20,7 +20,7 @@ export default function Home() {
     control,
     handleSubmit,
   } = useForm<RegisterForm>({
-    mode: 'onBlur',
+    mode: "onBlur",
   });
 
   const teste = (data: RegisterForm) => {
@@ -48,7 +48,7 @@ export default function Home() {
             control={control}
             label="Nome Completo"
             name="name"
-            rules={{ required: 'Nome obrigatorio.' }}
+            rules={{ required: "Nome obrigatorio." }}
             error={errors.name?.message}
           />
           <InputBase
@@ -56,11 +56,11 @@ export default function Home() {
             label="Telefone"
             name="telefone"
             rules={{
-              required: 'Telefone obrigatorio.',
+              required: "Telefone obrigatorio.",
               pattern: {
                 value: /^[0-9]{11}$/,
                 message:
-                  'Insira um número de telefone válido. Ex.: 84912345678',
+                  "Insira um número de telefone válido. Ex.: 84912345678",
               },
             }}
             error={errors.telefone?.message}
@@ -72,7 +72,7 @@ export default function Home() {
             control={control}
             label="Email"
             name="email"
-            rules={{ required: 'Email obrigatorio.' }}
+            rules={{ required: "Email obrigatorio." }}
             error={errors.email?.message}
             placeholder="exemplo@email.com"
           />
@@ -82,10 +82,10 @@ export default function Home() {
             label="Data de Nascimento"
             name="nascimento"
             rules={{
-              required: 'Data de nascimento obrigatoria.',
+              required: "Data de nascimento obrigatoria.",
               pattern: {
                 value: /^\d{2}-\d{2}-\d{4}$/,
-                message: 'Insira uma data valida. Ex.: dd-mm-aaaa',
+                message: "Insira uma data valida. Ex.: dd-mm-aaaa",
               },
             }}
             error={errors.nascimento?.message}
@@ -96,13 +96,13 @@ export default function Home() {
             control={control}
             label="Estado Civil"
             name="estadoCivil"
-            rules={{ required: 'Selecione uma opção valida.' }}
+            rules={{ required: "Selecione uma opção valida." }}
             error={errors.estadoCivil?.message}
             options={[
-              { label: 'Solteiro(a)', value: 'solteiro' },
-              { label: 'Casado(a)', value: 'casado' },
-              { label: 'Divorciado(a)', value: 'divorciado' },
-              { label: 'Viuvo(a)', value: 'viuvo' },
+              { label: "Solteiro(a)", value: "solteiro" },
+              { label: "Casado(a)", value: "casado" },
+              { label: "Divorciado(a)", value: "divorciado" },
+              { label: "Viuvo(a)", value: "viuvo" },
             ]}
           />
 
