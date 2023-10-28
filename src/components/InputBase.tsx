@@ -28,7 +28,7 @@ export function InputBase<FormType extends FieldValues>({
             {...inputProps}
             onChange={onChange}
             value={value}
-            className="h-8 border rounded-md w-full border-gray-300 p-2"
+            className="h-10 border rounded-md w-full border-gray-300 p-2"
           />
           {inputProps.error && (
             <p className="text-xs text-red-system mt-1 text-red-500 ">

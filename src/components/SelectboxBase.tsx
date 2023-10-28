@@ -1,5 +1,5 @@
-import { SelectboxBaseProps } from '@/types/forms';
-import { Controller, UseControllerProps, FieldValues } from 'react-hook-form';
+import { SelectboxBaseProps } from "@/types/forms";
+import { Controller, UseControllerProps, FieldValues } from "react-hook-form";
 
 export function SelectboxBase<FormType extends FieldValues>({
   control,
@@ -8,7 +8,7 @@ export function SelectboxBase<FormType extends FieldValues>({
   ...selectboxProps
 }: UseControllerProps<FormType> & SelectboxBaseProps) {
   const estadoCivil = [
-    { label: 'Selecione...', value: '' },
+    { label: "Selecione...", value: "" },
     ...selectboxProps.options,
   ];
 
@@ -25,7 +25,7 @@ export function SelectboxBase<FormType extends FieldValues>({
           <select
             onChange={onChange}
             value={value}
-            className="h-10 border rounded-md w-full border-gray-300 p-2"
+            className="h-10 border rounded-md w-full bg-white text-gray-400 border-gray-300 p-2"
           >
             {estadoCivil.map((option, index) => (
               <option key={index} value={option.value}>
