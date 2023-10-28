@@ -48,6 +48,7 @@ export default function Home() {
             control={control}
             label="Nome Completo"
             name="name"
+            placeholder="Seu nome completo"
             rules={{ required: "Nome obrigatorio." }}
             error={errors.name?.message}
           />
@@ -57,14 +58,9 @@ export default function Home() {
             name="telefone"
             rules={{
               required: "Telefone obrigatorio.",
-              pattern: {
-                value: /^[0-9]{11}$/,
-                message:
-                  "Insira um número de telefone válido. Ex.: 84912345678",
-              },
             }}
             error={errors.telefone?.message}
-            placeholder="Ex: 84912345678"
+            placeholder="Seu número de celular"
             type="number"
           />
 
@@ -74,22 +70,18 @@ export default function Home() {
             name="email"
             rules={{ required: "Email obrigatorio." }}
             error={errors.email?.message}
-            placeholder="exemplo@email.com"
+            placeholder="Seu melhor e-mail"
           />
 
           <InputBase
             control={control}
-            label="Data de Nascimento"
+            label="Data de nascimento"
             name="nascimento"
             rules={{
               required: "Data de nascimento obrigatoria.",
-              pattern: {
-                value: /^\d{2}-\d{2}-\d{4}$/,
-                message: "Insira uma data valida. Ex.: dd-mm-aaaa",
-              },
             }}
             error={errors.nascimento?.message}
-            placeholder="Ex: 23-10-2000"
+            placeholder="Sua data de nascimento"
           />
 
           <SelectboxBase
@@ -105,7 +97,51 @@ export default function Home() {
               { label: "Viuvo(a)", value: "viuvo" },
             ]}
           />
-
+          <InputBase
+            control={control}
+            label="Data do casamento"
+            name="dataCasamento"
+            placeholder="A data do seu casamento"
+          />
+          <SelectboxBase
+            control={control}
+            label="Escolaridade"
+            name="escolaridade"
+            rules={{ required: "Selecione uma opção valida." }}
+            error={errors.estadoCivil?.message}
+            options={[
+              {
+                label: "Ensino fundamental Incompleto",
+                value: "fundamentalIncompleto",
+              },
+              {
+                label: "Ensino fundamental completo",
+                value: "fundamentalCompleto",
+              },
+              { label: "Ensino médio incompleto", value: "medioIncompleto" },
+              { label: "Ensino médio completo", value: "medioCompleto" },
+              { label: "Técnico", value: "tecnico" },
+              { label: "Graduação cursando", value: "graduacaoCursando" },
+              { label: "Graduação", value: "graduacao" },
+              { label: "Pós-graduação", value: "posGraduacao" },
+              { label: "Mestrado", value: "mestrado" },
+              { label: "Doutorado", value: "doutorado" },
+            ]}
+          />
+          <InputBase
+            name="curso"
+            label="Curso"
+            control={control}
+            placeholder="Curso caso tenha feito"
+          />
+          <InputBase
+            name="profissao"
+            label="Profissão"
+            control={control}
+            placeholder="Sua profissão ou último trabalho"
+            rules={{ required: "Profissão ou último trabalho obrigatório." }}
+            error={errors.profissao?.message}
+          />
           <BaseButtton title="Enviar" />
         </form>
         <div className="mt-6">
