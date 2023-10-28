@@ -1,4 +1,4 @@
-export type InputBaseProps = {
+export type SwitchProps = {
   placeholder?: string;
   type?: string;
   label: string;

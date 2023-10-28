@@ -10,6 +10,7 @@ import {
   Title2,
   Header,
   SelectboxBase,
+  Switch,
 } from "@/components";
 import { RegisterForm } from "@/types/forms";
 import { BaseButtton } from "@/components/BaseButton";
@@ -141,6 +142,12 @@ export default function Home() {
             placeholder="Sua profissão ou último trabalho"
             rules={{ required: "Profissão ou último trabalho obrigatório." }}
             error={errors.profissao?.message}
+          />
+          <Switch
+            name="familiaresIgj"
+            label="Tem familiares na igreja?"
+            control={control}
+            rules={{ required: "Esse campo é obrigatório" }}
           />
           <BaseButtton title="Enviar" />
         </form>

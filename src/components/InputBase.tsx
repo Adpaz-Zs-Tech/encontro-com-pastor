@@ -1,19 +1,13 @@
 import { Controller, UseControllerProps, FieldValues } from "react-hook-form";
 
-type InputProps = {
-  placeholder?: string;
-  type?: string;
-  label: string;
-  error?: string;
-  value?: any;
-};
+import { InputBaseProps } from "@/types/forms";
 
 export function InputBase<FormType extends FieldValues>({
   control,
   name,
   rules,
   ...inputProps
-}: UseControllerProps<FormType> & InputProps) {
+}: UseControllerProps<FormType> & InputBaseProps) {
   return (
     <Controller
       name={name}

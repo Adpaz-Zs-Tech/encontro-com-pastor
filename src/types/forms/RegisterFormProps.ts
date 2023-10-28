@@ -8,4 +8,5 @@ export interface RegisterForm {
   curso?: string;
   profissao: string;
   dataCasamento: string;
+  familiaresIgj: boolean;
 }
